@@ -1,0 +1,22 @@
+{
+    "name": "kotchuprik/yii2-sortable-widgets",
+    "description": "Sortable widgets for Yii2",
+    "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
+    "keywords": ["yii2", "gridview", "sorting", "sortable", "jqueryui"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Constantin Chuprik",
+            "email": "constantinchuprik@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "kotchuprik\\Sortable\\": ""
+        }
+    }
+}
