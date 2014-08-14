@@ -41,7 +41,7 @@ public function actions()
 }
 ```
 
-Add column from the extension to widget call of GridView and specify sorting url:
+Add column from the extension to widget call of GridView and specify the sorting url:
 
 ```php
 echo \yii\grid\GridView::widget([
