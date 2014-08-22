@@ -1,7 +1,13 @@
 $('table tbody').sortable({
-    handle: '.handler',
-    opacity: 0.6,
+    handle: '.sw-handler',
+    placeholder: 'sw-placeholder',
     cursor: 'move',
+    helper: function (e, ui) {
+        ui.children().each(function () {
+            $(this).width($(this).width());
+        });
+        return ui;
+    },
     start: function (event, ui) {
         ui.item.data('prev-index', (ui.item.index() + 1));
     },

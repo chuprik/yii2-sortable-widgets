@@ -1,3 +1,32 @@
-.handler {
-    cursor: move;
+.sw-handler {
+    cursor: grab;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+.sw-placeholder {
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.sw-placeholder td {
+    padding: 0 !important;
+    border: none !important;
+    text-align: left;
+    font-size: 0;
+}
+
+.sw-placeholder td:first-child:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: -6px;
+    margin-bottom: -4px;
+    margin-left: -6px;
+    border: 5px solid transparent;
+    border-left-color: red;
+    border-right: none;
 }

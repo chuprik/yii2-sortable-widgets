@@ -19,9 +19,9 @@ class Column extends \yii\grid\Column
 
     protected function renderDataCellContent($model, $key, $index)
     {
-        return Html::tag('div', '<a href="#">::</a>', [
+        return Html::tag('div', '&#9776;', [
             'data-sortable' => 'table',
-            'class' => 'handler',
+            'class' => 'sw-handler',
         ]);
     }
 }
