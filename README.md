@@ -44,6 +44,7 @@ public function actions()
     ];
 }
 ```
+### GridView widget
 
 Add column from the extension to widget call of GridView and specify the sorting url:
 
