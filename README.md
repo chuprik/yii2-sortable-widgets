@@ -1,6 +1,6 @@
 # Yii2 Sortable widgets
 
-Implementation the jQuery UI Sortable for sorting models in Yii2 GridView by drag'n'drop.
+Implementation the jQuery UI Sortable for Yii2 widgets.
 
 Supported:
 
@@ -44,7 +44,6 @@ public function actions()
     ];
 }
 ```
-### GridView widget
 
 Add column from the extension to widget call of GridView and specify the sorting url:
 
