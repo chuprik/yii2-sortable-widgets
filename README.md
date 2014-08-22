@@ -2,6 +2,10 @@
 
 Implementation the jQuery UI Sortable for sorting models in Yii2 GridView by drag'n'drop.
 
+Supported:
+
+- GridView widget.
+
 ## Usage
 
 Create new migration, change parent to the migration class from the extension and specify the table name:
