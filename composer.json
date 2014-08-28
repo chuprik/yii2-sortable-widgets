@@ -1,8 +1,8 @@
 {
     "name": "kotchuprik/yii2-sortable-widgets",
-    "description": "Implementation the jQuery UI Sortable for the Yii2 widgets",
+    "description": "Implementation the jQuery UI Sortable for the Yii2 widgets. Sortable grid view.",
     "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
-    "keywords": ["yii2", "gridview", "sorting", "sortable", "jqueryui", "dnd"],
+    "keywords": ["yii2", "gridview", "sorting", "sortable", "jqueryui", "dnd", "grid"],
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
