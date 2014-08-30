@@ -18,7 +18,6 @@ $('table tbody').sortable({
             dragged: ui.item.data('key')
         };
 
-        console.log(event, ui);
         var url = ui.item.parents('table').data('sorting-url');
 
         $.post(url, data);
