@@ -36,7 +36,7 @@ class Sortable extends \yii\base\Behavior
         /** @var ActiveRecord[] $models */
         $models = $this->query->where(':attributeName > :attributeValue', [
             ':attributeName' => $this->orderAttribute,
-            ':attributeValue' => $this->{$this->orderAttribute}
+            ':attributeValue' => $this->owner->{$this->orderAttribute}
         ])->all();
         foreach ($models as $model) {
             $model->{$this->orderAttribute}--;
