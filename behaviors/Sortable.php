@@ -33,14 +33,19 @@ class Sortable extends \yii\base\Behavior
 
     public function afterDelete()
     {
-        /** @var ActiveRecord[] $models */
-        $models = $this->query->where(':attributeName > :attributeValue', [
-            ':attributeName' => $this->orderAttribute,
+        $nextModel = $this->query->where('`' . $this->orderAttribute . '` > :attributeValue', [
             ':attributeValue' => $this->owner->{$this->orderAttribute}
-        ])->all();
-        foreach ($models as $model) {
-            $model->{$this->orderAttribute}--;
-            $model->update(false, [$this->orderAttribute]);
+        ])->orderBy([$this->orderAttribute => SORT_ASC])->one();
+        if ($nextModel !== null) {
+            $difference = $nextModel->{$this->orderAttribute} - $this->owner->{$this->orderAttribute};
+            /** @var static[] $models */
+            $models = $this->query->where('`' . $this->orderAttribute . '` > :attributeValue', [
+                ':attributeValue' => $this->owner->{$this->orderAttribute}
+            ])->all();
+            foreach ($models as $model) {
+                $model->{$this->orderAttribute} = $model->{$this->orderAttribute} - $difference;
+                $model->update(false, [$this->orderAttribute]);
+            }
         }
     }
 }
