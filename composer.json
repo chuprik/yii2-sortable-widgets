@@ -21,7 +21,7 @@
   ],
   "require": {
     "yiisoft/yii2": "*",
-    "bower-asset/Sortable": "*"
+    "bower-asset/RubaxaSortable": "*"
   },
   "autoload": {
     "psr-4": {
@@ -31,7 +31,7 @@
   "extra": {
     "asset-repositories": [
       {
-        "name": "bower-asset/Sortable",
+        "name": "bower-asset/RubaxaSortable",
         "type": "bower-vcs",
         "url": "git@github.com:RubaXa/Sortable.git"
       }
