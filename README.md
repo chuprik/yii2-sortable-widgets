@@ -52,7 +52,7 @@ echo \yii\grid\GridView::widget([
     'dataProvider' => $model->search(),
     'columns' => [
         [
-            'class' => \kotchuprik\sortable\grid\Column::className(),]
+            'class' => \kotchuprik\sortable\grid\Column::className(),
         ],
         'id',
         'title',
