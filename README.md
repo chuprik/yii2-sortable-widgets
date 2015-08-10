@@ -6,6 +6,8 @@ Supported:
 
 - GridView widget.
 
+![demo](https://hsto.org/files/60e/e7a/ced/60ee7aced7794a638d0a6365062397ad.gif)
+
 ## Usage
 
 Create a new migration, change a parent to the migration class from the extension and specify the table name property:
