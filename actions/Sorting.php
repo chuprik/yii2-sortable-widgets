@@ -2,13 +2,13 @@
 
 namespace kotchuprik\sortable\actions;
 
-use yii\db\ActiveRecord;
-use yii\db\Query;
-use yii\web\HttpException;
+use yii\base\Action;
+use yii\db\ActiveQuery;
+use yii\web\BadRequestHttpException;
 
-class Sorting extends \yii\base\Action
+class Sorting extends Action
 {
-    /** @var Query */
+    /** @var ActiveQuery */
     public $query;
 
     /** @var string */
@@ -16,38 +16,20 @@ class Sorting extends \yii\base\Action
 
     public function run()
     {
-        $prev = \Yii::$app->request->post('prev_index');
-        $new = \Yii::$app->request->post('new_index');
-
-        $draggedQuery = clone $this->query;
-
-        /** @var ActiveRecord $dragged */
-        $dragged = $draggedQuery->where(['id' => \Yii::$app->request->post('dragged')])->one();
-        if ($dragged === null) {
-            throw new HttpException(400, 'Dragged model not found.');
-        }
-
-        if ($prev < $new) {
-            for ($order = $prev; $order <= $new; $order++) {
-                $currentQuery = clone $this->query;
-
-                /** @var ActiveRecord $model */
-                $model = $currentQuery->andWhere([$this->orderAttribute => $order])->one();
-                $model->{$this->orderAttribute}--;
+        $transaction = \Yii::$app->db->beginTransaction();
+        try {
+            foreach (\Yii::$app->request->post('sorting') as $order => $id) {
+                $query = clone $this->query;
+                $model = $query->andWhere(['id' => $id])->one();
+                if ($model === null) {
+                    throw new BadRequestHttpException();
+                }
+                $model->{$this->orderAttribute} = $order;
                 $model->update(false, [$this->orderAttribute]);
             }
-        } else {
-            for ($order = $prev; $order >= $new; $order--) {
-                $currentQuery = clone $this->query;
-
-                /** @var ActiveRecord $model */
-                $model = $currentQuery->andWhere([$this->orderAttribute => $order])->one();
-                $model->{$this->orderAttribute}++;
-                $model->update(false, [$this->orderAttribute]);
-            }
+            $transaction->commit();
+        } catch (\Exception $e) {
+            $transaction->rollBack();
         }
-
-        $dragged->{$this->orderAttribute} = $new;
-        $dragged->update(false, [$this->orderAttribute]);
     }
 }

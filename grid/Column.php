@@ -2,26 +2,23 @@
 
 namespace kotchuprik\sortable\grid;
 
-use kotchuprik\sortable\assets\Asset;
+use kotchuprik\sortable\assets\SortableAsset;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 class Column extends \yii\grid\Column
 {
     public $headerOptions = ['style' => 'width: 30px;'];
-    public $sortingUrl;
 
     public function init()
     {
-        Asset::register($this->grid->view);
-        $this->grid->tableOptions['data-sorting-url'] = Url::to($this->sortingUrl);
+        SortableAsset::register($this->grid->view);
     }
 
     protected function renderDataCellContent($model, $key, $index)
     {
         return Html::tag('div', '&#9776;', [
-            'data-sortable' => 'table',
-            'class' => 'sw-handler',
+            'class' => 'sortable-widget-handler',
+            'data-id' => $model->id,
         ]);
     }
 }

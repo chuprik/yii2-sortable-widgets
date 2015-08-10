@@ -2,10 +2,11 @@
 
 namespace kotchuprik\sortable\behaviors;
 
+use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 
-class Sortable extends \yii\base\Behavior
+class Sortable extends Behavior
 {
     /** @var Query */
     public $query;
@@ -17,7 +18,6 @@ class Sortable extends \yii\base\Behavior
     {
         return [
             ActiveRecord::EVENT_BEFORE_INSERT => 'beforeInsert',
-            ActiveRecord::EVENT_AFTER_DELETE => 'afterDelete',
         ];
     }
 
@@ -28,24 +28,6 @@ class Sortable extends \yii\base\Behavior
             $this->owner->{$this->orderAttribute} = 1;
         } else {
             $this->owner->{$this->orderAttribute} = $last->{$this->orderAttribute} + 1;
-        }
-    }
-
-    public function afterDelete()
-    {
-        $nextModel = $this->query->where('`' . $this->orderAttribute . '` > :attributeValue', [
-            ':attributeValue' => $this->owner->{$this->orderAttribute}
-        ])->orderBy([$this->orderAttribute => SORT_ASC])->one();
-        if ($nextModel !== null) {
-            $difference = $nextModel->{$this->orderAttribute} - $this->owner->{$this->orderAttribute};
-            /** @var static[] $models */
-            $models = $this->query->where('`' . $this->orderAttribute . '` > :attributeValue', [
-                ':attributeValue' => $this->owner->{$this->orderAttribute}
-            ])->all();
-            foreach ($models as $model) {
-                $model->{$this->orderAttribute} = $model->{$this->orderAttribute} - $difference;
-                $model->update(false, [$this->orderAttribute]);
-            }
         }
     }
 }

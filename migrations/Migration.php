@@ -2,6 +2,8 @@
 
 namespace kotchuprik\sortable\migrations;
 
+use yii\db\Schema;
+
 abstract class Migration extends \yii\db\Migration
 {
     protected $tableName;
@@ -10,7 +12,7 @@ abstract class Migration extends \yii\db\Migration
 
     public function up()
     {
-        $this->addColumn($this->tableName, $this->attributeName, 'tinyint unsigned NOT NULL');
+        $this->addColumn($this->tableName, $this->attributeName, Schema::TYPE_SMALLINT . ' unsigned NOT NULL');
     }
 
     public function safeDown()

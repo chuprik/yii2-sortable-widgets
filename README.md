@@ -1,6 +1,6 @@
 # Yii2 Sortable widgets
 
-Implementation the jQuery UI Sortable for Yii2 widgets.
+Implementation Rubaxa/Sortable for Yii2 widgets.
 
 Supported:
 
@@ -8,7 +8,7 @@ Supported:
 
 ## Usage
 
-Create new migration, change parent to the migration class from the extension and specify the table name:
+Create a new migration, change a parent to the migration class from the extension and specify the table name property:
 
 ```php
 class m140811_131705_Models_order extends \kotchuprik\sortable\migrations\Migration
@@ -17,7 +17,7 @@ class m140811_131705_Models_order extends \kotchuprik\sortable\migrations\Migrat
 }
 ```
 
-Add Sortable behavior to your model and specify the query:
+Add the sortable behavior to your model and specify the query property:
 
 ```php
 public function behaviors()
@@ -31,7 +31,7 @@ public function behaviors()
 }
 ```
 
-Add Sorting action to your controller and specify the query:
+Add the sorting action to your controller and specify the query property:
 
 ```php
 public function actions()
@@ -45,19 +45,24 @@ public function actions()
 }
 ```
 
-Add column from the extension to widget call of GridView and specify the sorting url:
+Add the column to your grid view and specify the sorting url like here:
 
 ```php
 echo \yii\grid\GridView::widget([
     'dataProvider' => $model->search(),
     'columns' => [
         [
-            'class' => \kotchuprik\sortable\grid\Column::className(),
-            'sortingUrl' => ['sorting']
+            'class' => \kotchuprik\sortable\grid\Column::className(),]
         ],
         'id',
         'title',
         'order',
+    ],
+    'options' => [
+        'data' => [
+            'sortable-widget' => 1,
+            'sortable-url' => \yii\helpers\Url::toRoute(['sorting']),
+        ]
     ],
 ]);
 ```

@@ -1,22 +1,40 @@
 {
-    "name": "kotchuprik/yii2-sortable-widgets",
-    "description": "Implementation the jQuery UI Sortable for the Yii2 widgets. Sortable grid view.",
-    "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
-    "keywords": ["yii2", "gridview", "sorting", "sortable", "jqueryui", "dnd", "grid"],
-    "type": "yii2-extension",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Constantin Chuprik",
-            "email": "constantinchuprik@gmail.com"
-        }
-    ],
-    "require": {
-        "yiisoft/yii2": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "kotchuprik\\sortable\\": ""
-        }
+  "name": "kotchuprik/yii2-sortable-widgets",
+  "description": "Implementation the jQuery UI Sortable for the Yii2 widgets. Sortable grid view.",
+  "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
+  "keywords": [
+    "yii2",
+    "gridview",
+    "sorting",
+    "sortable",
+    "jqueryui",
+    "dnd",
+    "grid"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Constantin Chuprik",
+      "email": "constantinchuprik@gmail.com"
     }
+  ],
+  "require": {
+    "yiisoft/yii2": "*",
+    "bower-asset/Sortable": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "kotchuprik\\sortable\\": ""
+    }
+  },
+  "extra": {
+    "asset-repositories": [
+      {
+        "name": "bower-asset/Sortable",
+        "type": "bower-vcs",
+        "url": "git@github.com:RubaXa/Sortable.git"
+      }
+    ]
+  }
 }
