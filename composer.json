@@ -20,21 +20,11 @@
     }
   ],
   "require": {
-    "yiisoft/yii2": "*",
-    "bower-asset/Sortable": "*"
+    "yiisoft/yii2": "*"
   },
   "autoload": {
     "psr-4": {
       "kotchuprik\\sortable\\": ""
     }
-  },
-  "extra": {
-    "asset-repositories": [
-      {
-        "name": "bower-asset/Sortable",
-        "type": "bower-vcs",
-        "url": "git@github.com:RubaXa/Sortable.git"
-      }
-    ]
   }
 }
