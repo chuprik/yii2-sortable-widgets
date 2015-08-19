@@ -4,6 +4,7 @@ namespace kotchuprik\sortable\grid;
 
 use kotchuprik\sortable\assets\SortableAsset;
 use yii\helpers\Html;
+use yii\web\View;
 
 class Column extends \yii\grid\Column
 {
