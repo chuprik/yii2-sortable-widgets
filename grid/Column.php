@@ -12,6 +12,7 @@ class Column extends \yii\grid\Column
     public function init()
     {
         SortableAsset::register($this->grid->view);
+        $this->grid->view->registerJs('initSortableWidgets();', View::POS_READY, 'sortable');
     }
 
     protected function renderDataCellContent($model, $key, $index)
