@@ -40,8 +40,8 @@ public function actions()
 {
     return [
         'sorting' => [
-            'class' => Sorting::className(),
-            'query' => Model::find(),
+            'class' => \kotchuprik\sortable\actions\Sorting::className(),
+            'query' => \vendor\namespace\Model::find(),
         ],
     ];
 }
