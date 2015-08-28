@@ -12,7 +12,7 @@ abstract class Migration extends \yii\db\Migration
 
     public function up()
     {
-        $this->addColumn($this->tableName, $this->attributeName, Schema::TYPE_SMALLINT . ' unsigned NOT NULL');
+        $this->addColumn($this->tableName, $this->attributeName, Schema::TYPE_SMALLINT . ' NOT NULL');
     }
 
     public function safeDown()
