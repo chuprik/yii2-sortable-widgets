@@ -58,6 +58,9 @@ Add the column to your grid view and specify the sorting url like here:
 ```php
 echo \yii\grid\GridView::widget([
     'dataProvider' => $model->search(),
+    'rowOptions' => function ($model, $key, $index, $grid) {
+        return ['data-sortable-id' => $model->id];
+    },
     'columns' => [
         [
             'class' => \kotchuprik\sortable\grid\Column::className(),
