@@ -1,9 +1,10 @@
 {
   "name": "kotchuprik/yii2-sortable-widgets",
-  "description": "Implementation the jQuery UI Sortable for the Yii2 widgets. Sortable grid view.",
+  "description": "Implementation Rubaxa/Sortable for Yii2. Sortable grid view inside.",
   "homepage": "http://github.com/kotchuprik/yii2-sortable-widgets",
   "keywords": [
     "yii2",
+    "rubaxa",
     "gridview",
     "sorting",
     "sortable",
@@ -15,7 +16,7 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Constantin Chuprik",
+      "name": "Constantine Chuprik",
       "email": "constantinchuprik@gmail.com"
     }
   ],
