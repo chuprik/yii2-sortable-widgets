@@ -1,5 +1,7 @@
 # Yii2 Sortable widgets
 
+[![Join the chat at https://gitter.im/kotchuprik/yii2-sortable-widgets](https://badges.gitter.im/kotchuprik/yii2-sortable-widgets.svg)](https://gitter.im/kotchuprik/yii2-sortable-widgets?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Implementation Rubaxa/Sortable for Yii2 widgets.
 
 Supported:
