@@ -26,7 +26,7 @@
    * @param   {..*}           [args]
    * @returns {jQuery|*}
    */
-  $.fn.sortable = function (options) {
+  $.fn.sortableWidgets = function (options) {
     var retVal;
 
     this.each(function () {
