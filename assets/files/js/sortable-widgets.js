@@ -4,8 +4,13 @@ function initSortableWidgets() {
     handle: '.sortable-widget-handler',
     dataIdAttr: 'data-sortable-id',
     onEnd: function (e) {
-      $.post($(this.el).parents('[data-sortable-widget=1]').data('sortable-url'), {
+      var context = $(this.el).parents('[data-sortable-widget=1]');
+      $.post(context.data('sortable-url'), {
         sorting: this.toArray()
+      }).done(function () {
+          if (context.data('pjax')) {
+              $.pjax.reload({container: context.data('pjax-container'), timeout: context.data('pjax-timeout')})
+          }
       });
     }
   });
