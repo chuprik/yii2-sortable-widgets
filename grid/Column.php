@@ -20,7 +20,7 @@ class Column extends \yii\grid\Column
     {
         return Html::tag('div', '&#9776;', [
             'class' => 'sortable-widget-handler',
-            'data-id' => $model->id,
+            'data-id' => $model->getPrimaryKey(),
         ]);
     }
 }
