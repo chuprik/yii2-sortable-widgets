@@ -20,6 +20,7 @@ class Sorting extends Action
     public function run()
     {
         $transaction = \Yii::$app->db->beginTransaction();
+        $offset = \Yii::$app->request->post('offset');
         try {
             foreach (\Yii::$app->request->post('sorting') as $order => $id) {
                 $query = clone $this->query;
@@ -27,7 +28,7 @@ class Sorting extends Action
                 if ($model === null) {
                     throw new BadRequestHttpException();
                 }
-                $model->{$this->orderAttribute} = $order;
+                $model->{$this->orderAttribute} = $offset + $order;
                 $model->update(false, [$this->orderAttribute]);
             }
             $transaction->commit();

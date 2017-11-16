@@ -18,9 +18,11 @@ class Column extends \yii\grid\Column
 
     protected function renderDataCellContent($model, $key, $index)
     {
+        $offset = $this->grid->dataProvider->pagination->pageSize * $this->grid->dataProvider->pagination->page;
         return Html::tag('div', '&#9776;', [
             'class' => 'sortable-widget-handler',
             'data-id' => $model->getPrimaryKey(),
+            'data-offset' => $offset
         ]);
     }
 }
