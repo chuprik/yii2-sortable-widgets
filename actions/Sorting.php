@@ -14,13 +14,16 @@ class Sorting extends Action
     /** @var string */
     public $orderAttribute = 'order';
 
+    /** @var string */
+    public $pk = 'id';
+    
     public function run()
     {
         $transaction = \Yii::$app->db->beginTransaction();
         try {
             foreach (\Yii::$app->request->post('sorting') as $order => $id) {
                 $query = clone $this->query;
-                $model = $query->andWhere(['id' => $id])->one();
+                $model = $query->andWhere([$this->pk => $id])->one();
                 if ($model === null) {
                     throw new BadRequestHttpException();
                 }
