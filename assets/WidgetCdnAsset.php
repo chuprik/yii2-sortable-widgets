@@ -4,15 +4,16 @@ namespace kotchuprik\sortable\assets;
 
 use yii\web\AssetBundle;
 
-class SortableAsset extends AssetBundle
+class WidgetCdnAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/kotchuprik/yii2-sortable-widgets/assets/files';
 
     public $js = [
-        'js/sortable-widgets.js',
+        'js/jquery.binding.js',
     ];
 
-    public $css = [
-        'css/sortable-widgets.css',
+    public $depends = [
+        'yii\web\JqueryAsset',
+        'kotchuprik\sortable\assets\RubaxaCdnAsset',
     ];
 }

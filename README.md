@@ -94,3 +94,17 @@ echo \yii\grid\GridView::widget([
     ],
 ]);
 ```
+
+If cdn is not accessible in your country, you can use Sortable library from local dependencies:
+
+```php
+...
+    'columns' => [
+        [
+            'class' => \kotchuprik\sortable\grid\Column::className(),
+            'useCdn' => false
+        ],
+        ...
+    ],
+...
+```

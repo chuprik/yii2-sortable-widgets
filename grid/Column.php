@@ -3,6 +3,8 @@
 namespace kotchuprik\sortable\grid;
 
 use kotchuprik\sortable\assets\SortableAsset;
+use kotchuprik\sortable\assets\WidgetCdnAsset;
+use kotchuprik\sortable\assets\WidgetLocalAsset;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -10,8 +12,15 @@ class Column extends \yii\grid\Column
 {
     public $headerOptions = ['style' => 'width: 30px;'];
 
+    public $useCdn = true;
+
     public function init()
     {
+        if ($this->useCdn) {
+            WidgetCdnAsset::register($this->grid->view);
+        } else {
+            WidgetLocalAsset::register($this->grid->view);
+        }
         SortableAsset::register($this->grid->view);
         $this->grid->view->registerJs('initSortableWidgets();', View::POS_READY, 'sortable');
     }
