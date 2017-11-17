@@ -21,11 +21,18 @@
     }
   ],
   "require": {
-    "yiisoft/yii2": "*"
+    "yiisoft/yii2": "*",
+    "npm-asset/sortablejs": "^1.6.1"
   },
   "autoload": {
     "psr-4": {
       "kotchuprik\\sortable\\": ""
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
