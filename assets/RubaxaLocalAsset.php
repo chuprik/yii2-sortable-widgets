@@ -9,6 +9,6 @@ class RubaxaLocalAsset extends AssetBundle
     public $sourcePath = '@vendor/npm-asset/sortablejs';
 
     public $js = [
-        'Sortable.min',
+        'Sortable.min.js',
     ];
 }
