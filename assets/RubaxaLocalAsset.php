@@ -6,9 +6,9 @@ use yii\web\AssetBundle;
 
 class RubaxaLocalAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/npm-asset/sortablejs';
+    public $sourcePath = '@vendor/kotchuprik/yii2-sortable-widgets/assets/files';
 
     public $js = [
-        'Sortable.min.js',
+        'js/Sortable.min.js',
     ];
 }
