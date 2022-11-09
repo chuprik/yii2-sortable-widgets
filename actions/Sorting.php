@@ -16,7 +16,10 @@ class Sorting extends Action
 
     /** @var string */
     public $pk = 'id';
-    
+
+    /** @var int */
+    public $startOrder = 0;
+
     public function run()
     {
         $transaction = \Yii::$app->db->beginTransaction();
@@ -28,7 +31,7 @@ class Sorting extends Action
                 if ($model === null) {
                     throw new BadRequestHttpException();
                 }
-                $model->{$this->orderAttribute} = $offset + $order;
+                $model->{$this->orderAttribute} = $offset + $order + $this->startOrder;
                 $model->update(false, [$this->orderAttribute]);
             }
             $transaction->commit();

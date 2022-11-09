@@ -55,6 +55,36 @@ public function actions()
 }
 ```
 
+If you're using another order field not 'order' (example 'sortingFieldName'), you must specify it in 'orderAttribute' parameter:
+
+```php
+public function actions()
+{
+    return [
+        'sorting' => [
+            'class' => \kotchuprik\sortable\actions\Sorting::className(),
+            'query' => \vendor\namespace\Model::find(),
+            'orderAttribute' => 'sortingFieldName',
+        ],
+    ];
+}
+```
+
+If you're need start ordering not 0 you must specify it in 'startOrder' parameter:
+
+```php
+public function actions()
+{
+    return [
+        'sorting' => [
+            'class' => \kotchuprik\sortable\actions\Sorting::className(),
+            'query' => \vendor\namespace\Model::find(),           
+            'startOrder' => 1
+        ],
+    ];
+}
+```
+
 If you're using another primary key (not 'id'), you must specify it in 'pk' parameter:
 
 ```php
